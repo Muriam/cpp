@@ -7,10 +7,7 @@ using namespace std;
 int main()
 {
 
-	int b, 
-		t = 2,
-		z = 3;
-	float y, x;
+	double y, x, b, t = 2, z = 3;
 	
 	b = t + z;
 	y = cos(b);	
