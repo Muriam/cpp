@@ -1,7 +1,7 @@
 #include <cmath>
 #include <iostream>
 #include <conio.h>
-#include <iomanip> // для setprecision (сколько знаков после запятой в действительном числе)
+#include <iomanip> //РґР»СЏ setprecision(СЃРєРѕР»СЊРєРѕ Р·РЅР°РєРѕРІ РїРѕСЃР»Рµ Р·Р°РїСЏС‚РѕР№ РІ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕРј С‡РёСЃР»Рµ)
 #define N 5
 #define H 0.011
 
