@@ -11,14 +11,14 @@ using namespace std;
 int main()
 {
 	double func, result, c, interp;
-	int x[31]; 
+	int x[30]; 
 	int i;
 	double a;
 	
 	c = N + 1;
 	
 	
-	for (i=0; i<=30; i++)
+	for (i=0; i<=29; i++)
 	{			
 		a = c+(i*H);
 		func = (pow(c,3) * 2) * sin(result/c); //точное значение функции 
