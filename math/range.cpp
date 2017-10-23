@@ -26,7 +26,14 @@ int main()
 		cout << "func = " << setprecision(7) << func << "\t\t" << "x = " << setprecision(7) << result << endl;  									
 	} 
 	
-
+	/*
+		for (i=0; i<=30; i++)  // цикл для вычисления приближенного значения
+	{
+		interp = 	
+		cout << "interpolation = " << setprecision(7) << interp << endl;  
+	}
+	*/
+	
 	getch();
 	return 0;	
 }	
