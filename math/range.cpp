@@ -1,9 +1,9 @@
 #include <cmath>
 #include <iostream>
 #include <conio.h>
-#include <iomanip> // для setprecision (сколько знаков после зап¤той в действительном числе)
+#include <iomanip> // для setprecision (сколько знаков после запятой в действительном числе)
 #define N 5
-#define H 0.011
+#define H 0.011  //эта константа шаг интерполяционной таблицы
 
 using namespace std;
 
