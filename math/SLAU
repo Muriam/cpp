@@ -1,0 +1,81 @@
+#include <cmath>
+#include <iostream>
+#include <conio.h>
+#include <iomanip> // для setprecision (сколько знаков после запятой в действительном числе) ;  setw (отступы)
+#include <locale>
+#define SIZE 4
+#define N 0.011
+
+
+using namespace std;
+
+
+float Var(int n);
+
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	
+	
+	float c;
+	int i,j;
+	float C[SIZE][SIZE];
+//	float CB[];
+	
+	c = Var(5);
+	
+	
+	float arr1[SIZE][SIZE] = {{ 0.95+c, 0.26+c, -0.17+c, 0.27+c },
+							  { -0.15+c, 1.26+c, 0.36+c, 0.42+c },
+							  { 0.26+c, -0.54+c, -1.76+c, 0.31+c },
+							  { -0.44+c, 0.29+c, -0.78+c, -1.78+c }};
+	
+	
+	float B[SIZE] = { 2.48, -3.16, 1.52, -1.29 };
+	
+	for (i = 0; i<=SIZE; i++)
+	{
+		B[i] = B[i] / arr1[i][i];
+	}
+
+//вывод матрицы С	
+	cout << "матрица С \n" << endl; 
+	for (i = 0; i<=SIZE; i++)
+		{
+			for (j = 0; j<=SIZE; j++)
+			{
+				C[i][j] = arr1[i][j] / arr1[i][i];   //вычисление матрицы С из матрицы arr1
+				if (i == j) C[i][j] = 0;   			//присваивание 0 диагонали
+				
+				cout << setw(12) << setprecision(3) << C[i][j]; 
+			}
+			cout << endl; 
+		}
+		
+//вывод матрицы CB		
+/*	for (i = 0; i<=SIZE; i++)
+		{
+			for (j = 0; j<=SIZE; j++)
+			{	
+				CB[0] = C[0][0] * B[0] + C[0][1] * B[1] + C[0][2] * B[2] + C[0][3] * B[3];
+				CB[1] = C[1][0] * B[0] + C[1][1] * B[1] + C[1][2] * B[2] + C[1][3] * B[3];
+				CB[2] = C[2][0] * B[0] + C[2][1] * B[1] + C[2][2] * B[2] + C[2][3] * B[3];
+				CB[3] = C[3][0] * B[0] + C[3][1] * B[1] + C[3][2] * B[2] + C[3][3] * B[3];
+				
+				cout << setw(12) << setprecision(3) << CB[i]; 
+			}
+			cout << endl; 
+		}
+	
+	*/
+	
+	getch();
+	return 0;
+}
+
+
+float Var(int n)
+{
+	return (float)n*0.01;
+}
