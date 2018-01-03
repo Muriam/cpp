@@ -1,7 +1,8 @@
 #include <cmath>
 #include <iostream>
 #include <conio.h>
-#include <iomanip> // для setprecision (сколько знаков после запятой в действительном числе)
+#include <iomanip> // РґР»СЏ setprecision (СЃРєРѕР»СЊРєРѕ Р·РЅР°РєРѕРІ РїРѕСЃР»Рµ Р·Р°РїСЏС‚РѕР№ РІ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕРј С‡РёСЃР»Рµ)
+#include <locale>
 #define N 5
 #define H 0.011
 
@@ -10,26 +11,39 @@ using namespace std;
 
 int main()
 {
-	double func,result,c;
-	int x[30] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29};
-	int i;
+	setlocale(LC_ALL, "rus");
 	
+	double func, result, c, interpol;
+//	int array_1[30]; Р»РёС€РЅРµРµ
+//	int array_2[31]; Р»РёС€РЅРµРµ
+	int j,i;
+	double x[31];
+	double y[31];
+		
 	c = N + 1;
 	
+	for (j=0; j<=30; j++)
+	{		
+		x[j] = c+(double)j*H;  	// Р·РЅР°С‡РµРЅРёСЏ С„-С†РёРё РїРѕ РѕСЃРё РҐ
+		y[j] = (pow(c,3) * 2) * sin(x[j]/c); 	// Р·РЅР°С‡РµРЅРёСЏ С„-С†РёРё РїРѕ РѕСЃРё Y  (  f(x)  )
+		
+		cout << " x = " << fixed << setprecision(4) << x[j] << "\t" 
+		<< "f(x) = " << fixed << setprecision(4) << y[j] << endl;	 		
+	}
+	
+	cout << endl;
 	
 	for (i=0; i<=29; i++)
-	{
-		if (c <= c+30)
-			{	
-				c = c+(30*H);
-				result = (c + (i * H)) + ((((i%4) + 1) / 5) * H);   //значения функции в точках (с помоцью линейной интерполяции)
-				func = (pow(c,3) * 2) * sin(i/c); //значения функции 
-				cout << "func = " << setprecision(6) << func << "\t\t" << "x = " << setprecision(6) << result << endl;  
-				c++;
-			}		
-	} 
-	
+	{		
+		result = (c + (double)i * H) + ((((double)(i%4) + double(1)) / 5) * H);   //x РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅРѕРµ
+		func = (pow(c,3) * 2) * sin(result/c);                                   //С‚РѕС‡РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ С„СѓРЅРєС†РёРё 
+		interpol = (y[i] + ((result - x[i]) / H) * (y[i+1] - y[i]) );		 //РёРЅС‚РµСЂРїРѕР»СЏС†РёСЏ
+		
+		cout << "x РїСЂРѕРјРµР¶СѓС‚. " << fixed << setprecision(4) << result << "\t" 
+		<< "РёРЅС‚РµСЂРї " << fixed << setprecision(4) << interpol << "\t\t" 
+		<< "С‚РѕС‡РЅ. " << fixed << setprecision(4) << func << endl;
+	}
 
 	getch();
 	return 0;	
-}	
+}
