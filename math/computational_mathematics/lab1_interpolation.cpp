@@ -1,7 +1,7 @@
 #include <cmath>
 #include <iostream>
 #include <conio.h>
-#include <iomanip> // дл€ setprecision (сколько знаков после зап€той в действительном числе)
+#include <iomanip> // для setprecision (сколько знаков после зап€той в действительном числе)
 #define N 5
 #define H 0.011
 
@@ -22,8 +22,8 @@ int main()
 		if (c <= c+30)
 			{	
 				c = c+(30*H);
-				result = (c + (i * H)) + ((((i%4) + 1) / 5) * H);   //значени€ функции в точках (с помоцью линейной интерпол€ции)
-				func = (pow(c,3) * 2) * sin(i/c); //значени€ функции 
+				result = (c + (i * H)) + ((((i%4) + 1) / 5) * H);   //значения функции в точках (с помоцью линейной интерполяции)
+				func = (pow(c,3) * 2) * sin(i/c); //значения функции 
 				cout << "func = " << setprecision(6) << func << "\t\t" << "x = " << setprecision(6) << result << endl;  
 				c++;
 			}		
