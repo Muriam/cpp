@@ -1,7 +1,7 @@
-#include <cmath>
+п»ї#include <cmath>
 #include <iostream>
 #include <conio.h>
-#include <iomanip> // для setprecision (сколько знаков после запятой в действительном числе) ;  setw (отступы)
+#include <iomanip> // РґР»СЏ setprecision (СЃРєРѕР»СЊРєРѕ Р·РЅР°РєРѕРІ РїРѕСЃР»Рµ Р·Р°РїСЏС‚РѕР№ РІ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕРј С‡РёСЃР»Рµ) ;  setw (РѕС‚СЃС‚СѓРїС‹)
 #include <locale>
 #define SIZE 4
 #define N 0.011
@@ -16,19 +16,19 @@ float Var(int n);
 int main()
 {
 	setlocale(LC_ALL, "rus");
-	
+	 
 	
 	float c;
 	int i,j;
 	float C[SIZE][SIZE];
 	float normC, max1=0;
-	float normB;
+	float normB, max2=0;
+
+	
+//	float CB[SIZE];
 	
 	
-	float CB[SIZE];
-	
-	
-	
+		
 	c = Var(5);
 	
 	
@@ -48,14 +48,15 @@ int main()
 		B[i] = B[i] / arr1[i][i];
 	}
 
-//вывод матрицы С (она же det arr1)
-	cout << "матрица С \n" << endl; 
-	for (i = 0; i<SIZE; i++)
+
+//РІС‹РІРѕРґ РјР°С‚СЂРёС†С‹ вЂ” (РѕРЅР° Р¶Рµ det arr1)
+	cout << "РјР°С‚СЂРёС†Р° РЎ \n" << endl; 
+	for (i = 0; i<SIZE; i++)          //С†РёРєР» РїРѕ СЃС‚СЂРѕРєР°Рј
 		{
-			for (j = 0; j<SIZE; j++)
+			for (j = 0; j<SIZE; j++)  //С†РёРєР» РїРѕ СЃС‚РѕР»Р±С†Р°Рј
 			{
-				C[i][j] = arr1[i][j] / arr1[i][i];   //вычисление матрицы С из матрицы arr1
-				if (i == j) C[i][j] = 0;   			//присваивание 0 диагонали
+				C[i][j] = arr1[i][j] / arr1[i][i];   //РІС‹С‡РёСЃР»РµРЅРёРµ РјР°С‚СЂРёС†С‹ вЂ” РёР· РјР°С‚СЂРёС†С‹ arr1
+				if (i == j) C[i][j] = 0;   	 		//РїСЂРёСЃРІР°РёРІР°РЅРёРµ 0 РґРёР°РіРѕРЅР°Р»Рё
 				
 				cout << setw(12) << setprecision(3) << C[i][j] ; 
 			}
@@ -65,8 +66,8 @@ int main()
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	cout << endl;
-	cout << "норма матрицы С = " ; 	
-	double str[SIZE];
+	cout << "РЅРѕСЂРјР° РјР°С‚СЂРёС†С‹ = " ; 	
+//	double str[SIZE];
 	for (int i=0; i<SIZE; i++)
 	{
 		normC = fabs(C[i][0]) + fabs(C[i][1]) + fabs(C[i][2]) + fabs(C[i][3]);
@@ -75,6 +76,8 @@ int main()
 	}
 	cout << setprecision(3) << max1 << endl;	
 		
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 
 	
