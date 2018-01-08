@@ -10,7 +10,11 @@ using namespace std;
 
 
 float Var(int n);
-void Mult(double C[4][4], double B[4], double CB[4]);// умножение матрицы на вектор
+/*float Mult(double C[][4], double B[], double CB[]);// умножение матрицы на вектор*/
+void Mult(double C[][4], double B[], double CB[]);
+
+
+
 
 int main()
 {
@@ -24,7 +28,7 @@ int main()
 	float normB, max2=0;
 	int steps;
 	float X1,X2,X3;	
-	float CB[3][1];
+/*	float CB[4];  */
 	
 	
 		
@@ -32,9 +36,9 @@ int main()
 	
 	
 	float arr1[SIZE][SIZE] = {{ 0.95+c, 0.26+c, -0.17+c, 0.27+c },
-				  { -0.15+c, 1.26+c, 0.36+c, 0.42+c },
-				  { 0.26+c, -0.54+c, -1.76+c, 0.31+c },
-				  { -0.44+c, 0.29+c, -0.78+c, -1.78+c }};
+							  { -0.15+c, 1.26+c, 0.36+c, 0.42+c },
+							  { 0.26+c, -0.54+c, -1.76+c, 0.31+c },
+							  { -0.44+c, 0.29+c, -0.78+c, -1.78+c }};
 							  
 							  
 							  
@@ -128,8 +132,12 @@ int main()
 	
 //	for (j = 0; j<SIZE; j++)  //цикл по столбцам
 //	{
-		cout << fixed << setprecision(3) << Mult(C[4][4], B[4], CB[4]) << endl;
+		/*cout << fixed << setprecision(3) << Mult(C[4][4], B[4], CB[4]) << endl;*/
 //	}
+	
+	
+	cout << fixed << setprecision(3) << Mult(double C[][4], double B[], double CB[]) << endl;
+	
 	
 	getch();
 	return 0;
@@ -140,13 +148,25 @@ float Var(int n)
 	return (float)n*0.01;
 }
 
-void Mult(double C[4][4], double B[4], double CB[4])
+void Mult(double C[][4], double B[], double CB[])
 {
-	CB[0] = C[0][0] * B[0] + C[0][1] * B[1] + C[0][2] * B[2] + C[0][3] * B[3];
-	CB[1] = C[1][0] * B[0] + C[1][1] * B[1] + C[1][2] * B[2] + C[1][3] * B[3];
-	CB[2] = C[2][0] * B[0] + C[2][1] * B[1] + C[2][2] * B[2] + C[2][3] * B[3];
-	CB[3] = C[3][0] * B[0] + C[3][1] * B[1] + C[3][2] * B[2] + C[3][3] * B[3];
+	for (int i(0); i < 4; i++)
+	{
+		CB[i] = 0;
+		for (int j(0); j < 4; j++)
+		{
+			CB[i] += C[i][j] * B[i];
+		}
+	}
 }
 
-
-
+/*
+float Mult(double C[4][4], double B[4], double CB[4])
+{
+	for (int i(0); i < 4; i++)
+	{
+		CB[i] = C[i][0] * B[i] + C[i][1] * B[i] + C[i][2] * B[i] + C[i][3] * B[i];
+	}
+	return CB[i];
+}
+*/
