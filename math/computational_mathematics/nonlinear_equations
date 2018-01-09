@@ -1,0 +1,39 @@
+#include <cmath>
+#include <iostream>
+#include <conio.h>
+#include <iomanip>
+#include <locale>
+
+
+using namespace std;
+
+//float func(float); //уравнение
+
+
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	
+	int D, rootD, a = 3, b = -6, c = -24, a1, a2;
+	
+
+	D = pow(b,2) - 4 * a * c; 
+	rootD = sqrt(D);
+	cout << "дискриминант = " << D << endl;
+	cout << "корень из дискриминанта = " << rootD << endl;
+	a1 = (-b + rootD) / (2*a);
+	a2 = (-b - rootD) / (2*a);
+	cout << "корень1 = " << a1 << endl;
+	cout << "корень2 = " << a2 << "\n\n";
+
+	getch();
+	return 0;	
+}
+
+/*
+float func(float x)
+{
+	return pow(x,3) - 3*pow(x,2) - 24*x - 8;
+}
+*/
