@@ -1,0 +1,87 @@
+#include <cmath>
+#include <iostream>
+#include <conio.h>
+#include <iomanip> // для setprecision (сколько знаков после запятой в действительном числе) ;  setw (отступы)
+#include <locale>
+#define SIZE 4
+
+
+using namespace std;
+
+
+
+void Multip(float C[SIZE][SIZE], float B[SIZE], float CB[SIZE]); // умножение матрицы на вектор
+
+
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+ 
+ 	float C[SIZE][SIZE];
+ 	float B[SIZE] = { 1.000, 2.000, 3.000, 4.000 };
+ 	int i=0, j;
+ 	float CB[SIZE];
+ 
+	for (i = 0; i<SIZE; i++)
+	{    
+	    C[i][0] = 1;
+	    C[i][1] = 2;
+	    C[i][2] = 3;
+	    C[i][3] = 4;	
+	}
+	
+///////////////////////////////////////////////////////////////////////////////
+    
+    cout << "матрица C \n\n"; 
+    for (i = 0; i<SIZE; i++)          
+    {
+            for (j = 0; j<SIZE; j++)      
+            {
+                    cout << setw(12) << fixed << setprecision(3) << C[i][j]; 
+            }
+            cout << endl;
+        }
+        cout << endl;
+    
+///////////////////////////////////////////////////////////////////////////////
+   
+    
+    cout << "вектор В \n" << endl;
+    for (i = 0; i<SIZE; i++)  
+    {   
+        cout << setw(12) << fixed << setprecision(3) << B[i] << endl;   
+    }
+    cout << endl;	
+
+///////////////////////////////////////////////////////////////////////////////
+
+        cout << "результат умножения \n" << endl; 
+    
+
+    Multip(C, B, CB);
+    
+    for (i = 0; i<SIZE; i++)  
+    {
+		cout << setw(12) << fixed << CB[i] << endl;
+	}
+
+ 
+    getch();
+    return 0;
+}
+
+
+    
+void Multip(float C[SIZE][SIZE], float B[SIZE], float CB[SIZE])
+{
+    for (int i=0; i < SIZE; i++)
+    {
+        CB[i] = 0;
+        for (int j=0; j < SIZE; j++)
+        {
+            CB[i] += C[i][j] * B[i];
+        }
+    }
+    
+}    
