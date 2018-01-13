@@ -1,0 +1,77 @@
+#include <cmath>
+#include <iostream>
+#include <conio.h>
+#include <iomanip> // для setprecision (сколько знаков после запятой в действительном числе) ;  setw (отступы)
+#include <locale>
+#define SIZE 4
+
+
+using namespace std;
+
+
+
+void Subtr(float B[SIZE], float CB[SIZE], float X[SIZE]); 
+
+
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+ 
+ 	
+ 	float B[SIZE] = { 1.000, 8.000, 9.000, 4.000 };
+ 	float CB[SIZE] = { 6.000, 3.000, 2.000, 7.000 };
+ 	int i;
+ 	float X[SIZE];
+ 
+	
+///////////////////////////////////////////////////////////////////////////////
+    
+    cout << "вектор неВ \n" << endl;
+    for (i = 0; i<SIZE; i++)  
+    {   
+        cout << setw(12) << fixed << setprecision(3) << B[i] << endl;   
+    }
+    cout << endl;
+    
+///////////////////////////////////////////////////////////////////////////////
+   
+    
+    cout << "вектор СВ \n" << endl;
+    for (i = 0; i<SIZE; i++)  
+    {   
+        cout << setw(12) << fixed << setprecision(3) << CB[i] << endl;   
+    }
+    cout << endl;	
+
+///////////////////////////////////////////////////////////////////////////////
+
+	cout << "результат вычитания вектора CнеB из вектора неB \n" ;
+	
+	Subtr(B, CB, X);
+		  
+        for (i = 0; i<SIZE; i++)  
+    {
+		cout << setw(12) << fixed << X[i] << endl;
+	}
+    cout << endl;
+
+ 
+    getch();
+    return 0;
+}
+
+    
+/* ф-ция вычитания вектора CнеB из вектора неB */
+void Subtr(float B[SIZE], float CB[SIZE], float X[SIZE])
+{
+    for (int i=0; i < SIZE; i++)
+    {
+        X[i] = 0;
+        for (int j=0; j < SIZE; j++)
+        {
+            X[i] = B[i] - CB[i];
+        }
+    } 
+	cout << endl; 
+}
