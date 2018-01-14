@@ -1,21 +1,22 @@
 #include <cmath>
 #include <iostream>
 #include <conio.h>
-#include <iomanip>
 #include <locale>
 
 
 using namespace std;
 
-//float func(float); //уравнение
-
+float func(float); //уравнение
+float half(float min, float max); //метод половинного деления (бисекции)
 
 
 int main()
 {
 	setlocale(LC_ALL, "rus");
 	
-	int D, rootD, a = 3, b = -6, c = -24, a1, a2;
+	
+	float D, rootD, a = 3, b = -6, c = -24, a1, a2;
+	float x1, x2;
 	
 
 	D = pow(b,2) - 4 * a * c; 
@@ -27,13 +28,44 @@ int main()
 	cout << "корень1 = " << a1 << endl;
 	cout << "корень2 = " << a2 << "\n\n";
 
+////////////////////////////////////////////////////////////////////
+
+	x1 = func(a1);
+	cout << "x = " << x1 << endl;
+	x2 = func(a2);
+	cout << "x = " << x2 << "\n\n";
+	
+////////////////////////////////////////////////////////////////////
+	
+	cout << "x1 на отрезке от -100 до -88 = " << half(-100, a2) << endl;
+	cout << "x2 на отрезке от -88 до 20 = " << half(a2, a1) << endl;
+	cout << "x3 на отрезке от 20 до 100 = " << half(a1, 100) << endl;
+	
+
 	getch();
 	return 0;	
 }
 
-/*
+
 float func(float x)
 {
 	return pow(x,3) - 3*pow(x,2) - 24*x - 8;
 }
-*/
+
+
+float half(float min, float max)
+{
+	float const e = 0.0001; //точность
+	
+	float x = (max + min) / 2;
+	
+	while (abs(func(x) > e))
+	{
+		if (func(x) > 0)
+			max = x;
+		else
+			min = x;
+		x = (max + min) / 2;	
+	}
+	return x;
+}
