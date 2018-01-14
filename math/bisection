@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+ 
+ 
+double f(double x)
+{
+	//return log(1 + x*x - sin(x)) - pow(3, cos(2*x));
+	return pow(x,3) - 3*pow(x,2) - 24*x - 8;
+}
+ 
+ 
+double findRoot(double a, double b, double e) // функция, которая ищет 0 на промежутке от а до b
+{
+	while (b - a > e) // пока не будет достигнута необходимая точность
+	{
+		if (f(a) * f((b + a) / 2) == 0)
+			break;
+		else if (f(a) * f((b + a) / 2) > 0)
+			a = (b + a) / 2;
+		else
+			b = (b + a) / 2;
+	}
+	return (b + a) / 2;
+}
+ 
+ 
+int main() 
+{
+//	double e;
+//	cin >> e;
+	double const e = 0.0001;
+
+	cout << findRoot(-4, -3, e) << endl;
+	cout << findRoot(-3, -2, e) << endl;
+	cout << findRoot(-1, 0, e) << endl;
+	cout << findRoot(1, 2, e) << endl;
+	cout << findRoot(2, 3, e) << endl;
+	cout << findRoot(3, 4, e) << endl;
+	return 0;
+}
