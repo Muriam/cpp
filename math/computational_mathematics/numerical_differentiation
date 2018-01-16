@@ -1,0 +1,66 @@
+#include<iostream>
+#include<cmath>
+#include <conio.h>
+#include <locale>
+#include <iomanip> 
+#define e 0.0001
+
+
+using namespace std;
+
+
+
+/* формула для нахождения с */
+float var(float n)
+{
+	return 3 * pow(0.1*(n + 1.0), 3);
+}
+
+/* нахождение шага */
+float step(float c, float h)
+{
+	h = pow(3 * e / c,  1.0 / 3.0);
+	return h;
+}
+
+/* погрешность дифференцирования */  
+float inaccuracy(float c, float h, float R)
+{
+	R = ((h*h) / 6) * c + (e / h);
+	return R;
+}
+
+/* изначальная функция */
+float func(float x, float c)
+{
+	return 1 / pow(c, 2) * cos(c*x);
+}
+
+
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	float c, x, h, R; 
+	
+	
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////	
+	
+	c = var(5.0); //последняя цифра зачетки 5
+	cout << fixed << setprecision(4) << "c = " << c << "\n\n";
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	h = step(c, h);
+	cout << fixed << setprecision(4) << "шаг h = " << h << "\n\n";
+		
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+	R = inaccuracy(c, h, R);
+	cout << fixed << setprecision(4) << "погрешность дифференцирования R = " << R << "\n\n";
+	
+	getch();
+    return 0;	
+}
