@@ -1,0 +1,66 @@
+#include <iostream>
+#include <cmath>
+#include <conio.h>
+#include <locale>
+#define exp 2.7183 //экспонента
+#define e 0.0001   //точность
+#define N 5 
+
+
+using namespace std;
+
+
+
+/* изначальная функция */
+float func(float x)
+{
+	return pow(exp, sqrt(x)) * ( x - 1.0) * (x - 10.0) * (x - N - 1.0) * (x - 0.5);
+}
+
+/* функция прекращается, если */
+float cessation(float a, float b)
+{
+	return (a + b) / 2.0;
+}
+
+
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	
+	float a = 0.0, b = 0.5;	
+	const float l1 = 0.618, l2 = 0.382;
+	float y1, y2, A, B;
+	y1 = l1 * a + l2 * b;
+	y2 = l2 * a + l1 * b;
+	A = func(y1);
+	B = func(y2);
+	
+	
+  
+	while (b - a < e)
+	{
+
+		if (A < B)
+		{
+		  B = A;
+			y2 = y1;
+			y1 = l1 * a + l2 * b;
+			A = func(y1);
+		}
+		else 
+		{
+			A = B;
+			y1 = y2;
+			y2 = l2 * a + l1 * b;
+			B = func(y2);
+		}
+	}
+
+	cout << cessation(a, b);
+
+
+	getch();
+	return 0;
+}
