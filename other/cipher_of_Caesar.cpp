@@ -1,26 +1,22 @@
+/* Создайте функцию, которая принимает строку и возвращает строку, 
+  зашифрованную с помощью Rot13. Если в строку включены числа или 
+  специальные символы, они должны быть возвращены как есть. Только 
+  буквы из латинского/английского алфавита должны быть сдвинуты, 
+  как в оригинальной Rot13 "реализация". */
 #include <iostream>
 
-using namespace std; 
- 
-void func1(char arr1[]); 
- 
- 
+using namespace std;
+
 int main()
 {
 	setlocale(LC_ALL, "rus");
-    
-    char arr1[] = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
- 
-    func1(arr1);
-    
-    
-    return 0;
-}
- 
-void func1(char arr1[])
-{
-    for (int i = 0; arr1[i] != '\0'; i++)
-    {
-        cout << arr1[i];
-    }
+
+	
+	char quote[128] = "";
+
+	cout << "Введите строку\n";
+	cin.getline(quote, 128); 
+	cout << quote << endl;
+
+	return 0;
 }
