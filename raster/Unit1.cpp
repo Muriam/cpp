@@ -56,4 +56,16 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::Button2Click(TObject *Sender)
+{
+        TImage* Source= new TImage(this);
+        Source->Picture->LoadFromFile("gvozdika_new.bmp");
+        Source->AutoSize = true;
+
+        int iSourceSize = Source->Width;
+        Edit1->Text = IntToStr(iSourceSize);
+        int iSourceSize2 = Source->Height;
+        Edit2->Text = IntToStr(iSourceSize2);
+}
+//---------------------------------------------------------------------------
 
