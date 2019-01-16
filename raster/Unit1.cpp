@@ -17,7 +17,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
-/* преобразование картинки из цветной в черно-белую */
+/* РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РєР°СЂС‚РёРЅРєРё РёР· С†РІРµС‚РЅРѕР№(24-Р±РёС‚РЅС‹Р№ РїРёРєСЃРµР»СЊ) РІ С‡РµСЂРЅРѕ-Р±РµР»СѓСЋ */
   Graphics::TBitmap *Bitmap = new Graphics::TBitmap();
   Bitmap->Assign(Image1->Picture);
 
@@ -42,15 +42,16 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
     Image1->Canvas->Draw(0, 0, Bitmap);
   }
 
-/* сохранение черно-белой картинки отдельным файлом в формате bmp */
+/* СЃРѕС…СЂР°РЅРµРЅРёРµ С‡РµСЂРЅРѕ-Р±РµР»РѕР№ РєР°СЂС‚РёРЅРєРё РѕС‚РґРµР»СЊРЅС‹Рј С„Р°Р№Р»РѕРј РІ С„РѕСЂРјР°С‚Рµ bmp */
   Image1->Picture->SaveToFile("gvozdika_new.bmp");
 
   delete Bitmap;
 }
+
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button3Click(TObject *Sender)
 {
-/* закрытие приложения */
+/* Р·Р°РєСЂС‹С‚РёРµ РїСЂРёР»РѕР¶РµРЅРёСЏ */
         Close();
 }
 //---------------------------------------------------------------------------
