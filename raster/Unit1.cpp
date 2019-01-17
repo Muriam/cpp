@@ -64,8 +64,15 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 
         int iSourceSize = Source->Width;
         Edit1->Text = IntToStr(iSourceSize);
+        
         int iSourceSize2 = Source->Height;
         Edit2->Text = IntToStr(iSourceSize2);
+        
+        //http://docwiki.embarcadero.com/Libraries/Rio/en/Vcl.Graphics.TPixelFormat
+        String bpp[9] = {"DBB", "1", "4", "8", "15", "16", "24", "32", "N/A"};
+        Edit3->Text = bpp[(int)(Source->Picture->Bitmap->PixelFormat)];
+        
+        Edit4->Text = GetBigFileSize("gvozdika_new.bmp");
 }
 //---------------------------------------------------------------------------
 
