@@ -1,6 +1,5 @@
-#ОБРАЗЕЦ
-#https://purecodecpp.com/archives/1188
-
+//ОБРАЗЕЦ
+//https://purecodecpp.com/archives/1188
 #include <iostream>
 #include <clocale>
 #include <conio.h>
@@ -21,7 +20,7 @@ int main()
 	cout << endl;
  
 	changeData(&variableForChange_1, &variableForChange_2);
-	#ЭТО ПРАВИЛЬНО, НО ПОЧЕМУ ПЕРЕМЕННЫЕ, В ЭТИХ ПАРАМЕТРАХ, НАЗЫВАЮТСЯ variableForChange... А НЕ varForCh... ????  
+	//ЭТО ПРАВИЛЬНО, НО ПОЧЕМУ ПЕРЕМЕННЫЕ, В ЭТИХ ПАРАМЕТРАХ, НАЗЫВАЮТСЯ variableForChange... А НЕ varForCh... ????  
  
 	cout << endl;
 	cout << "variableForChange_1 = " << variableForChange_1 << endl;
