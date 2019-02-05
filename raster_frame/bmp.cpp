@@ -23,12 +23,12 @@ Tbmp::~Tbmp()
 void Tbmp::Open(char *image_1)
 {
     FILE *ptrFile;
-    ptrFile = fopen(image_1, "rb");            //открытие файла для чтения
+    ptrFile = fopen(image_1, "rb");           //открытие файла для чтения
     int handle = _fileno(ptrFile);				   
-    bfsize = filelength(handle);			   //определение размера файла
-    buf = new byte[bfsize];       		       //выделение буфера
-    fread(buf, bfsize, 1, ptrFile);	           //чтение всей информации из файла
-    fclose(ptrFile);					       //закрытие файла
+    bfsize = filelength(handle);	      //определение размера файла
+    buf = new byte[bfsize];       	      //выделение буфера
+    fread(buf, bfsize, 1, ptrFile);	      //чтение всей информации из файла
+    fclose(ptrFile);			      //закрытие файла
 };
 
 /* Вычисление количества пустых байтов в конце строки, выровненной по 32-битной границе */
@@ -52,14 +52,14 @@ void Tbmp::saveResult(char *image_2)
     FileHeader head;
     FILE *ptrFile2;
   
-    ptrFile2 = fopen(image_2, "wb");		   //открытие файла для записи
-    fwrite(buf, bfsize, 1, ptrFile2);		   //запись всей информации в новый файл
-    fclose(ptrFile2);						   //закрытие файла
+    ptrFile2 = fopen(image_2, "wb");	       //открытие файла для записи
+    fwrite(buf, bfsize, 1, ptrFile2);	       //запись всей информации в новый файл
+    fclose(ptrFile2);			       //закрытие файла
   
     ptrFile2 = fopen(image_2, "rb+");          //открытие нового файла для чтения и записи
     fread(&head, sizeof(head), 1, ptrFile2);   //чтение заголовка
-    width = head.biwidth;					   //ширина картинки в пикселях
-    hight = head.biheight;					   //высота картинки в пикселях
+    width = head.biwidth;		       //ширина картинки в пикселях
+    hight = head.biheight;		       //высота картинки в пикселях
     fseek(ptrFile2, head.bfoffbits, SEEK_SET); //смещение к растру
     int offset = Offset();                     //вызов функции Offset
     const int pix = 15;                        //ширина рамки         
