@@ -1,0 +1,23 @@
+//---------------------------------------------------------------------------
+
+#ifndef bmpH
+#define bmpH
+//---------------------------------------------------------------------------
+
+class Tbmp
+{
+public:
+  long  bfoffbits;
+  long  biwidth;
+  long  biheight;
+public:
+  Tbmp();
+  ~Tbmp();
+  void Open(char* fn);
+  void Save(char* fn);
+};
+
+
+
+
+#endif

@@ -1,0 +1,41 @@
+object Form1: TForm1
+  Left = 439
+  Top = 143
+  Width = 715
+  Height = 574
+  Caption = #1088#1072#1084#1082#1072
+  Color = clGradientInactiveCaption
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Image1: TImage
+    Left = 8
+    Top = 8
+    Width = 681
+    Height = 449
+  end
+  object Button1: TButton
+    Left = 272
+    Top = 472
+    Width = 129
+    Height = 33
+    Caption = #1087#1088#1077#1086#1073#1088#1072#1079#1086#1074#1072#1090#1100
+    TabOrder = 0
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 608
+    Top = 496
+    Width = 75
+    Height = 25
+    Caption = #1074#1099#1093#1086#1076
+    TabOrder = 1
+    OnClick = Button2Click
+  end
+end
