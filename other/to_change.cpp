@@ -19,13 +19,11 @@ int main()
 {
 	setlocale(LC_ALL, "rus");
  
- /* файл 1*/
- 
-	ofstream outf("text1.txt");  	//создание объекта класса ofstream - для записи данных в файл; и создание файла text1.txt
- 	
- 
- 
- 	outf << "какой-то текст" << endl;
+	string str;	
+ 	getline(cin, str);	
+ 	ofstream outf("file1.txt"); 	
+ 	outf << str;
+	
  	
  	getch();
 	return 0;
